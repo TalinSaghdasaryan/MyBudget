@@ -1,3 +1,6 @@
+#include <iospace>]
+using namespace std;
+
 class Income{
 public:
   int amount;
