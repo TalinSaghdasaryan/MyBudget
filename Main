@@ -3,17 +3,19 @@ using namespace std;
 
 class Income{
 public:
-  int amount;
+  int in_amount;
   string type;
   void getIncome(){
-    cin>>amount;
+    cin>>in_amount;
     cin>>type;
   }
+  int amount;
+  
 };
 
 class Outcome{
 public:
-  int amount;
+  int amount=0;
   string type;
   void getOutcome(){
     cin>>amount;
@@ -22,9 +24,14 @@ public:
 };
 
 class Budget{
-  int amount;
+  int percentage;
   string tincome;
   string toutcome;
+  void getBudget(){
+    cin>>percentage;
+    cin>>tincome;
+    cin>>toutcome;
+  }
 };
 
 int main(){
