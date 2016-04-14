@@ -3,27 +3,32 @@ using namespace std;
 
 class Income{
 public:
-  int in_amount;
+  int amount;
   string type;
   void getIncome(){
-    cin>>in_amount;
-    cin>>type;
-  }
-  int amount;
-  
-};
-
-class Outcome{
-public:
-  int amount=0;
-  string type;
-  void getOutcome(){
     cin>>amount;
     cin>>type;
   }
 };
 
+class Outcome{
+public:
+  int amount=0;
+  int current;
+  string type;
+  string income_type;
+  void getOutcomeType(){
+    cin>>type;
+  }
+  void getOutcomeAmount(){
+    cin>>current;
+    amount=amount+current;
+    cin>>income_type;
+  }
+};
+
 class Budget{
+  Income budget_income[3];
   int percentage;
   string tincome;
   string toutcome;
@@ -41,7 +46,20 @@ int main(){
   }
   Outcome outcome[5];
   for(int i=0; i<5; i++){
-    outcome[i].getOutcome();
+    outcome[i].getOutcomeType();
+  }
+  string current; //input what type of outcome you want to make, then input the amount
+  cin>>current;
+  for(int i=0; i<5; i++){
+    if(current == outcome[i].type){
+      outcome[i].getOutcomeAmount();
+      for(int k=0; k<3; k++){
+        if(income[k].type == outcome[i].income_type){
+          //inch-vor tex qchacni ira unecac poxeri qanak@;
+        }
+      }
+      break;
+    }
   }
   return 0;
 }
