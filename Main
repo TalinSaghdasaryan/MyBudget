@@ -1,0 +1,37 @@
+class Income{
+public:
+  int amount;
+  string type;
+  void getIncome(){
+    cin>>amount;
+    cin>>type;
+  }
+};
+
+class Outcome{
+public:
+  int amount;
+  string type;
+  void getOutcome(){
+    cin>>amount;
+    cin>>type;
+  }
+};
+
+class Budget{
+  int amount;
+  string tincome;
+  string toutcome;
+};
+
+int main(){
+  Income income[3];
+  for(int i=0; i<3; i++){
+    income[i].getIncome();
+  }
+  Outcome outcome[5];
+  for(int i=0; i<5; i++){
+    outcome[i].getOutcome();
+  }
+  return 0;
+}
