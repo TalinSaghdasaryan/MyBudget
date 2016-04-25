@@ -2,64 +2,106 @@
 using namespace std;
 
 class Income{
-public:
-  int amount;
+ private:
+  double amount;
   string type;
+ public:
   void getIncome(){
     cin>>amount;
     cin>>type;
   }
+  double getAmount(){
+      return amount;
+  }
 };
 
 class Outcome{
-public:
-  int amount=0;
-  int current;
+ private:
+  double amount=0;
   string type;
-  string income_type;
-  void getOutcomeType(){
+  double current=0;
+  double percentage;
+  double budget;
+ public:
+  void getOutcome(double realincome){
     cin>>type;
+    cin>>percentage;
+    budget = realincome*percentage/100;
+  }
+  double getType(){
+      return type;
+  }
+  void coutType(){
+      cout<<type;
+  }
+  double getAmount(){
+      return amount;
+  }
+  void coutAmount(){
+      cout<<amount;
+  }
+  double getBudget(){
+      return budget;
   }
   void getOutcomeAmount(){
     cin>>current;
-    amount=amount+current;
-    cin>>income_type;
-  }
-};
-
-class Budget{
-  Income budget_income[3];
-  int percentage;
-  string tincome;
-  string toutcome;
-  void getBudget(){
-    cin>>percentage;
-    cin>>tincome;
-    cin>>toutcome;
-  }
-};
-
-int main(){
-  Income income[3];
-  for(int i=0; i<3; i++){
-    income[i].getIncome();
-  }
-  Outcome outcome[5];
-  for(int i=0; i<5; i++){
-    outcome[i].getOutcomeType();
-  }
-  string current; //input what type of outcome you want to make, then input the amount
-  cin>>current;
-  for(int i=0; i<5; i++){
-    if(current == outcome[i].type){
-      outcome[i].getOutcomeAmount();
-      for(int k=0; k<3; k++){
-        if(income[k].type == outcome[i].income_type){
-          //inch-vor tex qchacni ira unecac poxeri qanak@;
+    amount = amount+current;
+    budget = budget - current;
+    if (budget =< 0){
+        cout<<"Error 500"<<endl;
+        cout<<"Would you like to:"<<endl<<"1. take this out of another income or "<<endl<<"2. do we not take this BS into account?"<<endl;
+        cout<<"If 1, press 1, if 2 press 2";
+        int a;
+        cin>>a;
+        if(a == 1){
+            
         }
-      }
-      break;
+        if (a==2){
+            
+        }
+        else{
+            cout<<"Your input is incorrect"<<endl;
+        }
     }
   }
-  return 0;
+};
+
+    void bs(Outcome outcome[], n);
+
+int main(){
+    double realincome=0;
+    int m;
+    cin>>m;
+    int * income;
+    income = new Income [m];
+    for(int i=0; i<m; i++){
+        income[i].getIncome();
+        realincome = realincome + income[i].getAmount();
+    }
+    int n;
+    cin>>n; 
+    int *outcome;
+    outcome = new Outcome [n];
+    for(int i=0; i<n; i++){
+        outcome[i].getOutcomeType();
+    }
+    
+    
+    return 0;
 }
+
+    void bs(Outcome outcome[], n){
+        int ooverall = 0;
+        int ioverall = 0;
+        for (int i=0; i<n; i++){
+            ooverall = ooverall + outcome[i].getAmount();
+        }
+        for (int i=0; i<n; i++){
+            ioverall = ioverall + outcome[i].getBudget();
+        }
+        for(int i=0; i<n; i++){
+            cout<<"On "<<coutType<<" you have spent "<<coutAmount<<endl;
+        }
+        cout<<"Overall you have spent "<<ooverall<<endl;
+        cout<<"You have "<<ioverall<<" left"<<endl;
+    }
