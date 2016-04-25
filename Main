@@ -28,7 +28,7 @@ class Outcome{
     cin>>percentage;
     budget = realincome*percentage/100;
   }
-  double getType(){
+  string getType(){
       return type;
   }
   void coutType(){
@@ -47,7 +47,7 @@ class Outcome{
     cin>>current;
     amount = amount+current;
     budget = budget - current;
-    if (budget =< 0){
+    if (budget <= 0){
         cout<<"Error 500"<<endl;
         /*cout<<"Would you like to:"<<endl<<"1. take this out of another income or "<<endl<<"2. do we not take this BS into account?"<<endl;
         cout<<"If 1, press 1, if 2 press 2";
@@ -66,7 +66,7 @@ class Outcome{
   }
 };
 
-    void bs(Outcome outcome[], n);
+    void bs(Outcome outcome[], int n);
 
 int main(){
     cout<<"jjj"<<endl;
@@ -74,7 +74,7 @@ int main(){
     int m;
     cout<<"jjj"<<endl;
     cin>>m;
-    int * income;
+    Income * income;
     income = new Income [m];
     for(int i=0; i<m; i++){
         income[i].getIncome();
@@ -82,10 +82,10 @@ int main(){
     }
     int n;
     cin>>n; 
-    int *outcome;
+    Outcome *outcome;
     outcome = new Outcome [n];
     for(int i=0; i<n; i++){
-        outcome[i].getOutcomeType();
+        outcome[i].getType();
     }
     int a=1;
     string type;
@@ -102,7 +102,7 @@ int main(){
     return 0;
 }
 
-    void bs(Outcome outcome[], n){
+    void bs(Outcome[], int n){
         int ooverall = 0;
         int ioverall = 0;
         for (int i=0; i<n; i++){
@@ -112,7 +112,7 @@ int main(){
             ioverall = ioverall + outcome[i].getBudget();
         }
         for(int i=0; i<n; i++){
-            cout<<"On "<<coutType<<" you have spent "<<coutAmount<<endl;
+            cout<<"On "<<outcome[i].coutType()<<" you have spent "<<outcome[i].coutAmount()<<endl;
         }
         cout<<"Overall you have spent "<<ooverall<<endl;
         cout<<"You have "<<ioverall<<" left"<<endl;
