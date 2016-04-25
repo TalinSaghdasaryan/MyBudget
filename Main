@@ -17,9 +17,9 @@ class Income{
 
 class Outcome{
  private:
-  double amount=0;
+  double amount=0.0;
   string type;
-  double current=0;
+  double current=0.0;
   double percentage;
   double budget;
  public:
@@ -49,7 +49,7 @@ class Outcome{
     budget = budget - current;
     if (budget =< 0){
         cout<<"Error 500"<<endl;
-        cout<<"Would you like to:"<<endl<<"1. take this out of another income or "<<endl<<"2. do we not take this BS into account?"<<endl;
+        /*cout<<"Would you like to:"<<endl<<"1. take this out of another income or "<<endl<<"2. do we not take this BS into account?"<<endl;
         cout<<"If 1, press 1, if 2 press 2";
         int a;
         cin>>a;
@@ -61,7 +61,7 @@ class Outcome{
         }
         else{
             cout<<"Your input is incorrect"<<endl;
-        }
+        }*/
     }
   }
 };
@@ -69,8 +69,10 @@ class Outcome{
     void bs(Outcome outcome[], n);
 
 int main(){
-    double realincome=0;
+    cout<<"jjj"<<endl;
+    double realincome=0.0;
     int m;
+    cout<<"jjj"<<endl;
     cin>>m;
     int * income;
     income = new Income [m];
@@ -85,7 +87,17 @@ int main(){
     for(int i=0; i<n; i++){
         outcome[i].getOutcomeType();
     }
-    
+    int a=1;
+    string type;
+    while(a == 1){
+        for(int i=0; i<n; i++){
+            if(type == outcome[i].getType()){
+                outcome[i].getOutcomeAmount();
+            }
+        }
+        cin>>a;
+    }
+    bs(outcome[], n);
     
     return 0;
 }
