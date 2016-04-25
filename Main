@@ -106,7 +106,10 @@ void bs(Outcome *outcome, int n) {
 		ioverall = ioverall + outcome[i].getBudget();
 	}
 	for (int i = 0; i<n; i++) {
-		cout << "On "; outcome[i].coutType(); cout << " you have spent "; outcome[i].coutAmount();
+		cout << "On "; 
+		outcome[i].coutType(); 
+		cout << " you have spent "; 
+		outcome[i].coutAmount();
 	}
 	cout << "Overall you have spent " << ooverall << endl;
 	cout << "You have " << ioverall << " left" << endl;
