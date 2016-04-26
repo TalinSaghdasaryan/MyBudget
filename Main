@@ -9,10 +9,10 @@ private:
 	string type;
 public:
 	void getIncome() {
-	    cout<<"Please enter the amount of your income";
+	    cout<<"Please enter the amount of your income"<<endl;
 		cin >> amount;
-		cout<<"Please enter the type of your income";
-		getline(cin, type);
+		cout<<"Please enter the type of your income"<<endl;
+		cin>>type;
 	}
 	double getAmount() {
 		return amount;
@@ -88,7 +88,7 @@ int main() {
 	Outcome *outcome;
 	outcome = new Outcome[n];
 	for (int i = 0; i<n; i++) {
-		outcome[i].getOutcome();
+		outcome[i].getOutcome(realincome);
 	}
 	int a = 1;
 	string type;
