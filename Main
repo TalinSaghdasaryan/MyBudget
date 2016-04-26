@@ -2,19 +2,23 @@
 #include <string>
 #include <sstream>
 using namespace std;
+
 class Income {
 private:
 	double amount;
 	string type;
 public:
 	void getIncome() {
+	    cout<<"Please enter the amount of your income";
 		cin >> amount;
+		cout<<"Please enter the type of your income";
 		getline(cin, type);
 	}
 	double getAmount() {
 		return amount;
 	}
 };
+
 class Outcome {
 private:
 	double amount = 0.0;
@@ -24,7 +28,9 @@ private:
 	double budget;
 public:
 	void getOutcome(double realincome) {
+	    cout<<"Please enter the type of your amount "<<endl;
 		cin >> type;
+		cout<<"Please enter how much of your income you would like to spend on this outcome"<<endl;
 		cin >> percentage;
 		budget = realincome*percentage / 100;
 	}
@@ -44,6 +50,7 @@ public:
 		return budget;
 	}
 	void getOutcomeAmount() {
+	    cout<<"Enter the amount of your outcome"<<endl;
 		cin >> current;
 		amount = amount + current;
 		budget = budget - current;
@@ -65,10 +72,9 @@ public:
 };
 void bs(Outcome *outcome, int n);
 int main() {
-	cout << "jjj" << endl;
 	double realincome = 0.0;
 	int m;
-	cout << "jjj" << endl;
+    cout<<"Please enter the number of the incomes you would like"<<endl;
 	cin >> m;
 	Income * income;
 	income = new Income[m];
@@ -77,20 +83,24 @@ int main() {
 		realincome = realincome + income[i].getAmount();
 	}
 	int n;
+	cout<<"Please enter the number of outcomes you would like"<<endl;
 	cin >> n;
 	Outcome *outcome;
 	outcome = new Outcome[n];
 	for (int i = 0; i<n; i++) {
-		outcome[i].getType();
+		outcome[i].getOutcome();
 	}
 	int a = 1;
 	string type;
+	cout<<"Enter your outcome"<<endl;
+	cin>>type;
 	while (a == 1) {
 		for (int i = 0; i<n; i++) {
 			if (type == outcome[i].getType()) {
 				outcome[i].getOutcomeAmount();
 			}
 		}
+		cout<<"Enter your outcome"<<endl;
 		cin >> a;
 	}
 	bs(outcome, n);
