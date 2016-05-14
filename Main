@@ -56,7 +56,7 @@ public:
 		amount = amount + current;
 		budget = budget - current;
 		if (budget <= 0) {
-			cout << "Error 500" << endl << "Your budget has not been updated" << endl;
+			cout << "Error" << endl << "Your budget has not been updated" << endl;
 			budget = budget + current;
 			amount = amount - current;
 		}
@@ -117,7 +117,7 @@ void report(Outcome *outcome, int n) {
 		cout << "On ";
 		cout << outcome[i].getType();
 		cout << " you have spent "; 
-		cout << outcome[i].getAmount();
+		cout << outcome[i].getAmount()<<endl;
 	}
 	cout << "Overall you have spent " << ooverall << endl;
 	cout << "You have " << ioverall << " left" << endl;
