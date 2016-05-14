@@ -9,9 +9,9 @@ private:
 	string type;
 public:
 	Income(){
-	    cout<<"Object is being created"<<endl;
+	    amount = 0;
 	}
-	void getIncome() {
+	void setIncome() {
 	    cout<<"Please enter the amount of your income"<<endl;
 		cin >> amount;
 		cout<<"Please enter the type of your income"<<endl;
@@ -24,16 +24,17 @@ public:
 
 class Outcome {
 private:
-	double amount = 0.0;
+	double amount;
 	string type;
-	double current = 0.0;
+	double current;
 	double percentage;
 	double budget;
 public:
 	Outcome(){
-	    cout<<"Object is being created"<<endl;
+	    amount = 0;
+	    current = 0;
 	}
-	void getOutcome(double realincome) {
+	void setOutcome(double realincome) {
 	    cout<<"Please enter the type of the outcome you are planning to budget"<<endl;
 		cin >> type;
 		cout<<"Please enter which percent of your income you would like to spend on this outcome"<<endl;
@@ -43,14 +44,8 @@ public:
 	string getType() {
 		return type;
 	}
-	void coutType() {
-		cout << type;
-	}
 	double getAmount() {
 		return amount;
-	}
-	void coutAmount() {
-		cout << amount;
 	}
 	double getBudget() {
 		return budget;
@@ -67,7 +62,9 @@ public:
 		}
 	}
 };
-void bs(Outcome *outcome, int n);
+
+void report(Outcome *outcome, int n);
+
 int main() {
 	double realincome = 0.0;
 	int m;
@@ -77,7 +74,7 @@ int main() {
 	income = new Income[m];
 	for (int i = 0; i<m; i++) {
 	    cout<<"Enter the information concerning income number "<<i+1<<endl;
-		income[i].getIncome();
+		income[i].setIncome();
 		realincome = realincome + income[i].getAmount();
 	}
 	int n;
@@ -88,7 +85,7 @@ int main() {
 	cout<<"Please budget your income now"<<endl;
 	for (int i = 0; i<n; i++) {
 	    cout<<"Enter the information concerning outcome number "<<i+1<<endl;
-		outcome[i].getOutcome(realincome);
+		outcome[i].setOutcome(realincome);
 	}
 	cout<<"Enter the outcomes you have spent"<<endl;
 	int a = 1;
@@ -104,10 +101,10 @@ int main() {
 		cout<<"Press 1 to enter the next outcome or press 0 to terminate"<<endl;
 		cin >> a;
 	}
-	bs(outcome, n);
+	report(outcome, n);
 	return 0;
 }
-void bs(Outcome *outcome, int n) {
+void report(Outcome *outcome, int n) {
 	int ooverall = 0;
 	int ioverall = 0;
 	for (int i = 0; i<n; i++) {
@@ -117,10 +114,10 @@ void bs(Outcome *outcome, int n) {
 		ioverall = ioverall + outcome[i].getBudget();
 	}
 	for (int i = 0; i<n; i++) {
-		cout << "On "; 
-		outcome[i].coutType(); 
+		cout << "On ";
+		cout << outcome[i].getType();
 		cout << " you have spent "; 
-		outcome[i].coutAmount();
+		cout << outcome[i].getAmount();
 	}
 	cout << "Overall you have spent " << ooverall << endl;
 	cout << "You have " << ioverall << " left" << endl;
