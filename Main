@@ -56,7 +56,7 @@ public:
 		amount = amount + current;
 		budget = budget - current;
 		if (budget <= 0) {
-			cout << "Error" << endl << "Your budget has not been updated" << endl;
+			cout << "Error" << endl << "Your have exceeded your budget " << endl;
 			budget = budget + current;
 			amount = amount - current;
 		}
