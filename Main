@@ -12,9 +12,9 @@ public:
 	    amount = 0;
 	}
 	void setIncome() {
-	    cout<<"Please enter the amount of your income"<<endl;
+	    cout<<"Please enter the amount of your income in dollars"<<endl;
 		cin >> amount;
-		cout<<"Please enter the type of your income"<<endl;
+		cout<<"Please enter the type of your income (for example: salary)"<<endl;
 		cin>>type;
 	}
 	double getAmount() {
@@ -35,7 +35,7 @@ public:
 	    current = 0;
 	}
 	void setOutcome(double realincome) {
-	    cout<<"Please enter the type of the outcome you are planning to budget"<<endl;
+	    cout<<"Please enter the type of the outcome you are planning to budget (for example: food )"<<endl;
 		cin >> type;
 		cout<<"Please enter which percent of your income you would like to spend on this outcome"<<endl;
 		cin >> percentage;
@@ -51,7 +51,7 @@ public:
 		return budget;
 	}
 	void getOutcomeAmount() {
-	    cout<<"Enter the amount of your outcome"<<endl;
+	    cout<<"Enter the amount of your outcome in dollars "<<endl;
 		cin >> current;
 		amount = amount + current;
 		budget = budget - current;
